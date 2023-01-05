@@ -9,7 +9,6 @@ body {
   width: 550px;
   background-color: #fff;
   padding: 40px 50px 40px;
-
 }
 
 #text,
@@ -20,6 +19,10 @@ body {
 #author::before {
   content:"-";
   padding: 0 5px;
+}
+
+#tweet-quote {
+  padding: 8px 12px;
 }
 
 
