@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import $ from 'jquery';
+import { changeColor } from "./service";
 
 const url = "https://type.fit/api/quotes";
+
 
 function App() {
   const [quotation, setQuotation] = useState("");
@@ -19,6 +20,7 @@ function App() {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
         setQuotation(randomQuote);
       });
+      changeColor();
   };
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="d-flex vh-100 align-items-center">
+      <div className="d-flex vh-100 align-items-center ">
         <div id="quote-box" className="mx-auto rounded">
           <figure>
             <blockquote className="d-flex">
@@ -54,10 +56,10 @@ function App() {
               target="_blank"
               id="tweet-quote"
               rel="noreferrer"
-              className="p-2"
+              className="p-2 rounded"
               role="button"
             >
-              <i className="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter text-light"></i>
             </a>
           </div>
         </div>
@@ -67,18 +69,3 @@ function App() {
 }
 
 export default App;
-
-  const colors = ['#a862ea', '#6383ea','#b0ea62', '#f782c2','#f9c46b', '#85951b', '#571368']
-  let i = 0
-  const button = $('#new-quote');
-
-
-  button.on("click", function() {
-    i = i < colors.length - 1 ? ++i : 0;
-    $("#new-quote").css('background-color', colors[i]);
-    $("body").css('background-color', colors[i]);
-    $("#text").css('color', colors[i]);
-    $("#author").css('color', colors[i])
-    $(".fa-solid").css('color', colors[i]);
-    $(".fa-brands").css('color', colors[i]);
-  })

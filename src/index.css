@@ -9,12 +9,10 @@ body {
   width: 550px;
   background-color: #fff;
   padding: 40px 50px 40px;
+
 }
 
-#text {
-  font-size: 28px;
-}
-
+#text,
 .fa-solid.fa-quote-left:before {
   font-size: 28px;
 }
@@ -23,6 +21,7 @@ body {
   content:"-";
   padding: 0 5px;
 }
+
 
 
 
