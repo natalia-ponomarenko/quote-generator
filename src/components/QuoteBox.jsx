@@ -1,31 +1,23 @@
 import { changeColor } from "../service";
 import { useEffect } from "react";
+import { request } from "../api";
 
-const url = "https://type.fit/api/quotes";
+export const QuoteBox = ({ quotation, setQuotation }) => {
 
-export const QuoteBox = ({quotation, setQuotation}) => {
-  const getRandomQuote = () => {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`${response.status} - ${response.status.text}`);
-        }
-
-        return response.json();
-      })
-      .then((quotes) => {
-        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        setQuotation(randomQuote);
-      });
+  function getRandomQuote() {
+    request().then((quotes) => {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      setQuotation(randomQuote);
       changeColor();
-  };
+    });
+  }
 
   useEffect(() => {
     getRandomQuote();
   }, []);
 
-    return (
-      <div id="quote-box" className="mx-auto rounded">
+  return (
+    <div id="quote-box" className="mx-auto rounded">
       <figure>
         <blockquote className="d-flex">
           <i className="fa-solid fa-quote-left px-1"></i>
@@ -33,7 +25,9 @@ export const QuoteBox = ({quotation, setQuotation}) => {
         </blockquote>
         <figcaption className="text-end">
           <cite>
-            <span id="author">{quotation.author ? quotation.author : 'Unknown' }</span>
+            <span id="author">
+              {quotation.author ? quotation.author : "Unknown"}
+            </span>
           </cite>
         </figcaption>
       </figure>
@@ -58,5 +52,5 @@ export const QuoteBox = ({quotation, setQuotation}) => {
         </a>
       </div>
     </div>
-    )
-}
+  );
+};

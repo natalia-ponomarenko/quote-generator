@@ -15,7 +15,7 @@ const colors = [
   "#cc0000",
   "#c27ba0",
   "#4c1130",
-  "#f44336"
+  "#f44336",
 ];
 
 export function changeColor() {

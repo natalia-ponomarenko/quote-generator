@@ -12,6 +12,7 @@
 # Technologies
 - React
 - JQuery
+- Bootstrap
 - CSS3
 
 # How to run project locally
