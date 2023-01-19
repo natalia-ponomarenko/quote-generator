@@ -1,20 +1,20 @@
 import { changeColor } from "../service";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { request } from "../api";
 
 export const QuoteBox = ({ quotation, setQuotation }) => {
 
-  function getRandomQuote() {
+  const getRandomQuote = useCallback(() => {
     request().then((quotes) => {
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       setQuotation(randomQuote);
       changeColor();
     });
-  }
+  }, [setQuotation])
 
   useEffect(() => {
     getRandomQuote();
-  }, []);
+  }, [getRandomQuote]);
 
   return (
     <div id="quote-box" className="mx-auto rounded">

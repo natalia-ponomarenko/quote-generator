@@ -19,7 +19,7 @@
 1. Fork and clone this repository
 2. npm i
 3. npm start
-4. open your browser at http://localhost:1234
+4. open your browser at http://localhost:3000
 
 # Dependencies
 - Node v12.16.3 and higher
